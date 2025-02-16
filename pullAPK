@@ -1,0 +1,14 @@
+adb shell
+
+pm list packages 
+#This will likely return a list that is too long to be read. Adding "grep" as shown below would be a good idea. 
+pm list packages | grep NAME_OF_TARGET_APP
+
+#The command below will return the full path for the apk file of the target app. 
+pm path com.PUBLISHER.NAME_OF_TARGET_APP
+
+#Exit emulator terminal
+adb pull /data/app/~~0dZw-hrkmcoMOryzFZBGBQ==/com.PUBLISHER.NAME_OF_TARGET_APP-HSprBUlWGvBhQ9vbGc9KCA==/base.apk C:\Users\alper\Desktop\TARGET.apk
+
+#Remember: You will not be able to analyze AndroidManifest.xml when you directly extract the contents of the .apk file. 
+# Use apktool or similar to obtain readable files. 
